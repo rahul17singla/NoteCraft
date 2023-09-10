@@ -40,7 +40,9 @@ function SingleNote() {
     useEffect(() => {
         const fetching = async () => {
             console.log(id);
-            const { data } = await axios.get(`/api/notes/${id}`);
+            const { data } = await axios.get(
+                `${process.env.REACT_APP_SERVER_URL}/api/notes/${id}`
+            );
 
             setTitle(data.title);
             setContent(data.content);

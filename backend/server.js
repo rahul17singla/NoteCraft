@@ -6,11 +6,13 @@ const userRoutes = require("./routes/userRoutes");
 const noteRoutes = require("./routes/noteRoutes");
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 const path = require("path");
+const cors = require("cors");
 
 const app = express();
 dotenv.config();
 connectDb();
 app.use(express.json());
+app.use(cors());
 
 app.use("/api/notes", noteRoutes);
 
